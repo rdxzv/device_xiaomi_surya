@@ -17,6 +17,9 @@ on early-init
     write /dev/stune/schedtune.boost 50
     write /dev/stune/schedtune.prefer_idle 1
 
+    # Boost I/O performance
+    write /sys/block/mmcblk0/queue/scheduler "noop"
+
 on boot
     # GPU boost
     chown system system /sys/class/kgsl/kgsl-3d0/min_pwrlevel
@@ -68,6 +71,9 @@ on property:vendor.post_boot.parsed=1
     # Report max frequency to unity tasks
     write /proc/sys/kernel/sched_lib_name "UnityMain,libunity.so"
     write /proc/sys/kernel/sched_lib_mask_force 255
+
+    # Restore default I/O tuning
+    write /sys/block/mmcblk0/queue/scheduler "cfq"
 
 on property:persist.sys.device_provisioned=1
     setprop dalvik.vm.dex2oat-cpu-set 0,1,2,3,4,5,7
