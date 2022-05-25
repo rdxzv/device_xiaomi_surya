@@ -194,6 +194,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 # Filesystems table
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/init/etc/fstab.zram:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.zram \
     $(LOCAL_PATH)/init/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom \
     $(LOCAL_PATH)/init/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
 
