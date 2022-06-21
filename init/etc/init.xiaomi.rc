@@ -49,14 +49,6 @@ on post-fs-data
     chmod 666 /sys/class/drm/card0-DSI-1/disp_count
 
 on boot
-    chown system system /sys/class/drm/card0-DSI-1/disp_param
-    chmod 0664 /sys/class/drm/card0-DSI-1/disp_param
-    chown system system /sys/class/drm/card0-DSI-1/mipi_reg
-    chmod 0664 /sys/class/drm/card0-DSI-1/mipi_reg
-    chown system system /sys/class/drm/card0-DSI-1/panel_info
-    chmod 0444 /sys/class/drm/card0-DSI-1/panel_info
-    chown system system /sys/class/backlight/panel0-backlight/brightness_clone
-    chmod 0664  /sys/class/backlight/panel0-backlight/brightness_clone
     start mi_thermald
 
 #add for MI-cit white-led
@@ -71,18 +63,8 @@ on boot
     chown system system /sys/class/leds/led:switch_0/brightness
     chown system system /sys/class/leds/led:switch_1/brightness
     chown system system /sys/class/leds/led:switch_2/brightness
-    chown system system /sys/class/leds/red/brightness
-    chown system system /sys/class/leds/red/breath
-
-#Load exfat driver
-    insmod /vendor/lib/modules/exfat.ko
-
-#Load mi memory driver
-    insmod /vendor/lib/modules/mi_memory.ko
 
 on charger
-    chown system system /sys/class/leds/red/brightness
-    chmod 0666 /sys/class/leds/red/brightness
     start vendor.power_off_alarm
 
 on init
@@ -92,8 +74,6 @@ on init
     chown system system /sys/class/thermal/thermal_message/temp_state
 
     # access permissions for fingerprint
-    chown system system /sys/bus/platform/devices/soc/soc:fpc1020/irq
-    chown system system /sys/bus/platform/devices/soc/soc:fpc1020/wakeup_enable
     chown system system /sys/bus/platform/devices/soc/soc:fpc1020/modalias
     chmod 0666 /dev/qseecom
     chmod 0644 /dev/goodix_fp
