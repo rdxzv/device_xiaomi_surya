@@ -411,10 +411,6 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.radio.enableadvancedscan=true \
     ro.telephony.default_network=22,20
 
-# Recovery
-PRODUCT_SYSTEM_PROPERTIES += \
-    persist.sys.binary_xml=false
-
 # Secure Element
 PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.2.vendor
