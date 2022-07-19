@@ -10,10 +10,6 @@
   *;
 }
 
--keep class org.lineageos.settings.fpsinfo.* {
-  *;
-}
-
 -keep class org.lineageos.settings.refreshrate.* {
   *;
 }
